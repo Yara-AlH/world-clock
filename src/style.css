@@ -1,0 +1,67 @@
+body {
+  background-color: #f9f7fe;
+  font-family: monospace;
+}
+
+.container {
+  max-width: 420px;
+}
+
+.clock-body {
+  max-width: 500px;
+  margin: 0 auto;
+  margin-top: 100px;
+  padding: 40px 20px 20px 20px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background-color: white;
+
+  box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.03);
+}
+
+h1 {
+  padding-bottom: 10px;
+  font-size: 29px;
+  font-weight: bold;
+}
+
+.major-cities {
+  padding: 20px 0px 20px 0px;
+}
+
+.col {
+  padding: 7px;
+}
+
+.city {
+  font-size: 20px;
+  text-shadow: 0.5px 0.5px #686abe;
+}
+
+.date {
+  font-size: 11px;
+  opacity: 0.6;
+}
+
+.time {
+  font-size: 30px;
+  font-weight: bold;
+  text-shadow: 0.5px 0.5px #686abe;
+}
+
+.A {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+hr {
+  border-style: dashed;
+}
