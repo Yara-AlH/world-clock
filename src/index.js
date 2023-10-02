@@ -11,7 +11,7 @@ setInterval(function () {
   losAngelesTimeElement.innerHTML = moment()
     .tz("America/Los_Angeles")
     .format("h:mm:ss");
-  losAngelesAElement.innerHTML = moment().tz("America/Los_Angeles").format("a");
+  losAngelesAElement.innerHTML = moment().tz("America/Los_Angeles").format("A");
 }, 1000);
 
 // sydney
@@ -27,7 +27,7 @@ setInterval(function () {
   sydneyTimeElement.innerHTML = moment()
     .tz("Australia/Sydney")
     .format("h:mm:ss");
-  sydneyAElement.innerHTML = moment().tz("Australia/Sydney").format("a");
+  sydneyAElement.innerHTML = moment().tz("Australia/Sydney").format("A");
 }, 1000);
 
 // tokyo
@@ -39,7 +39,7 @@ setInterval(() => {
 
   tokyoDateElement.innerHTML = moment().tz("Asia/Tokyo").format("MMMM Do YYYY");
   tokyoTimeElement.innerHTML = moment().tz("Asia/Tokyo").format("h:mm:ss");
-  tokyoAElement.innerHTML = moment().tz("Asia/Tokyo").format("a");
+  tokyoAElement.innerHTML = moment().tz("Asia/Tokyo").format("A");
 }, 1000);
 
 // paris
@@ -53,5 +53,26 @@ setInterval(() => {
     .tz("Europe/Paris")
     .format("MMMM Do YYYY");
   parisTimeElement.innerHTML = moment().tz("Europe/Paris").format("h:mm:ss");
-  parisAElement.innerHTML = moment().tz("Europe/Paris").format("a");
+  parisAElement.innerHTML = moment().tz("Europe/Paris").format("A");
 }, 1000);
+
+function updateCity(event) {
+  let citiesElement = document.querySelector("#cities");
+  let cityTimezone = event.target.value;
+  let cityTime = moment().tz(cityTimezone);
+  let cityName = cityTimezone.replace("_", " ").split("/")[1];
+
+  citiesElement.innerHTML = ` <div class="row align-items-start" >
+  <div class="col left">
+    <div class="city">${cityName}</div>
+    <div class="date">${cityTime.format("MMMM Do YYYY")}</div>
+  </div>
+  <div class="col right">
+    <span class="time">${cityTime.format("h:mm:ss")}</span>
+    <span class="A">${cityTime.format("A")}</span>
+  </div>
+</div>`;
+}
+
+let cityElement = document.querySelector("#city");
+cityElement.addEventListener("change", updateCity);
