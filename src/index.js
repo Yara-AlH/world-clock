@@ -59,6 +59,10 @@ setInterval(() => {
 function updateCity(event) {
   let citiesElement = document.querySelector("#cities");
   let cityTimezone = event.target.value;
+  if (cityTimezone === "current") {
+    cityTimezone = moment.tz.guess();
+  }
+
   let cityTime = moment().tz(cityTimezone);
   let cityName = cityTimezone.replace("_", " ").split("/")[1];
 
@@ -71,7 +75,62 @@ function updateCity(event) {
     <span class="time">${cityTime.format("h:mm:ss")}</span>
     <span class="A">${cityTime.format("A")}</span>
   </div>
-</div>`;
+</div> <hr> <a class="allCities" href="/">All cities</a>
+`;
+
+  if (cityTimezone === "choose") {
+    citiesElement.innerHTML = `<div class="container text-center">
+    <div class="row align-items-start" id="los-angeles">
+      <div class="col left">
+        <div class="city">Los Angeles</div>
+        <div class="date"></div>
+      </div>
+      <div class="col right">
+        <span class="time"> </span>
+        <span class="A"></span>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <div class="container text-center">
+    <div class="row align-items-start" id="sydney">
+      <div class="col left">
+        <div class="city">Sydney</div>
+        <div class="date"></div>
+      </div>
+      <div class="col right">
+        <span class="time"></span>
+        <span class="A"></span>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <div class="container text-center">
+    <div class="row align-items-start" id="tokyo">
+      <div class="col left">
+        <div class="city">Tokyo</div>
+        <div class="date"></div>
+      </div>
+      <div class="col right">
+        <span class="time"></span>
+        <span class="A"></span>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <div class="container text-center">
+    <div class="row align-items-start" id="paris">
+      <div class="col left">
+        <div class="city">Paris</div>
+        <div class="date"></div>
+      </div>
+      <div class="col right">
+        <span class="time"></span>
+        <span class="A"></span>
+      </div>
+    </div>
+  </div>`; // is this too much?
+  }
 }
 
 let cityElement = document.querySelector("#city");
